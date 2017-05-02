@@ -17,8 +17,8 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">200</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
         <longProp name="ThreadGroup.start_time">1464868528000</longProp>
         <longProp name="ThreadGroup.end_time">1464868528000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -26,24 +26,6 @@
         <stringProp name="ThreadGroup.delay"></stringProp>
       </ThreadGroup>
       <hashTree>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定值計時器" enabled="true">
-          <stringProp name="ConstantTimer.delay">1000</stringProp>
-        </ConstantTimer>
-        <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP 要求預設值" enabled="false">
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
-            <collectionProp name="Arguments.arguments"/>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.126</stringProp>
-          <stringProp name="HTTPSampler.port">8000</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path"></stringProp>
-          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        </ConfigTestElement>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user delete" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
@@ -51,15 +33,15 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;FRUserId&quot;: &quot;0&quot;&#xd;
+	&quot;FRUserId&quot;: &quot;ggggg&quot;&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
+          <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
@@ -74,12 +56,14 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">pass</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user add" enabled="false">
@@ -90,25 +74,100 @@
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
               &quot;State&quot; :  &quot;Enable&quot;, &#xd;
-              &quot;Name&quot; :  &quot;11&quot;, &#xd;
-              &quot;FRUserId&quot; :  &quot;11&quot;, &#xd;
+              &quot;Name&quot; :  &quot;ggggg&quot;, &#xd;
+              &quot;FRUserId&quot; :  &quot;ggggg&quot;, &#xd;
               &quot;Gender&quot; :  &quot;Male&quot;, &#xd;
-              &quot;Groups&quot; :  &#xd;
-              [&#xd;
-                  {&#xd;
-                       &quot;Name&quot; :  &quot;g1&quot;, &#xd;
-                       &quot;OId&quot;  : &quot;17059e1e-53d2-11e6-950b-10bf48876fb1&quot;&#xd;
-                  }&#xd;
-              ],&#xd;
+&quot;Groups&quot;: [&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g0&quot;,&#xd;
+      &quot;OId&quot;: &quot;0f0a5cd0-15e8-11e7-996c-80ee73beb1f3&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g1&quot;,&#xd;
+      &quot;OId&quot;: &quot;0f97a23e-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g2&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fb47328-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g3&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fc572d6-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g4&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fd156aa-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g5&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fdd3376-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g6&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fe90fd4-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g7&quot;,&#xd;
+      &quot;OId&quot;: &quot;0ff4f1dc-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g8&quot;,&#xd;
+      &quot;OId&quot;: &quot;1000cdd6-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g9&quot;,&#xd;
+      &quot;OId&quot;: &quot;100ca502-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g10&quot;,&#xd;
+      &quot;OId&quot;: &quot;1018970e-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g11&quot;,&#xd;
+      &quot;OId&quot;: &quot;10247560-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g12&quot;,&#xd;
+      &quot;OId&quot;: &quot;10306262-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g13&quot;,&#xd;
+      &quot;OId&quot;: &quot;103c2f20-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g14&quot;,&#xd;
+      &quot;OId&quot;: &quot;1048011a-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group1&quot;,&#xd;
+      &quot;OId&quot;: &quot;4c2e8ebc-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group2&quot;,&#xd;
+      &quot;OId&quot;: &quot;4c3ef1ee-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group3&quot;,&#xd;
+      &quot;OId&quot;: &quot;4cb24518-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;Default&quot;,&#xd;
+      &quot;OId&quot;: &quot;50f368e6-1064-11e7-aed2-80ee73beb1f3&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;yuantest&quot;,&#xd;
+      &quot;OId&quot;: &quot;988736b0-1064-11e7-9afd-80ee73beb1f3&quot;&#xd;
+    }&#xd;
+  ],&#xd;
                &quot;Age&quot; : 1, &#xd;
-              &quot;RFIDCard&quot; :  &quot;11&quot;&#xd;
+              &quot;RFIDCard&quot; :  &quot;ggggg&quot;&#xd;
 &#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -124,15 +183,17 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">pass</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/api/user/list t400" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user list" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
@@ -147,7 +208,7 @@
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -171,108 +232,108 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/api/user update" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="user update" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-         	&quot;FRUserId&quot;:&quot;0&quot;,&#xd;
+         	&quot;FRUserId&quot;:&quot;ggggg&quot;,&#xd;
          	&quot;Name&quot;:&quot;0&quot;,&#xd;
          	&quot;Gender&quot;: &quot;Female&quot;, &#xd;
-         	&quot;RFIDCard&quot;: &quot;8512&quot;, &#xd;
+         	&quot;RFIDCard&quot;: &quot;ggggg&quot;, &#xd;
          	&quot;State&quot;: &quot;Enable&quot;, &#xd;
          	&quot;Age&quot;: 9, &#xd;
-	        &quot;Groups&quot;: [&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g0&quot;,&#xd;
-          &quot;OId&quot;: &quot;fa567f64-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g1&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc2da934-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g2&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc3d0c3a-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g3&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc473728-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g4&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc5167f2-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g5&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc56814c-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g6&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc5b95b0-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g7&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc60b2ca-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g8&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc65c65c-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g9&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc6adf52-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g10&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc6ff55a-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g11&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc750ec8-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g12&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc7a2692-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g13&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc7f4028-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g14&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc8455e0-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g15&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc896d14-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g16&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc8e865a-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g17&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc939c76-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g18&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc98b0f8-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        },&#xd;
-        {&#xd;
-          &quot;Name&quot;: &quot;g19&quot;,&#xd;
-          &quot;OId&quot;: &quot;fc9dcc3c-3f5d-11e6-9638-80ee73b8c37e&quot;&#xd;
-        }&#xd;
-    ]&#xd;
+	       &quot;Groups&quot;: [&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g0&quot;,&#xd;
+      &quot;OId&quot;: &quot;0f0a5cd0-15e8-11e7-996c-80ee73beb1f3&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g1&quot;,&#xd;
+      &quot;OId&quot;: &quot;0f97a23e-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g2&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fb47328-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g3&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fc572d6-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g4&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fd156aa-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g5&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fdd3376-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g6&quot;,&#xd;
+      &quot;OId&quot;: &quot;0fe90fd4-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g7&quot;,&#xd;
+      &quot;OId&quot;: &quot;0ff4f1dc-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g8&quot;,&#xd;
+      &quot;OId&quot;: &quot;1000cdd6-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g9&quot;,&#xd;
+      &quot;OId&quot;: &quot;100ca502-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g10&quot;,&#xd;
+      &quot;OId&quot;: &quot;1018970e-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g11&quot;,&#xd;
+      &quot;OId&quot;: &quot;10247560-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g12&quot;,&#xd;
+      &quot;OId&quot;: &quot;10306262-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g13&quot;,&#xd;
+      &quot;OId&quot;: &quot;103c2f20-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;neon_g14&quot;,&#xd;
+      &quot;OId&quot;: &quot;1048011a-157a-11e7-8efa-80ee73af4cf5&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group1&quot;,&#xd;
+      &quot;OId&quot;: &quot;4c2e8ebc-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group2&quot;,&#xd;
+      &quot;OId&quot;: &quot;4c3ef1ee-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;group3&quot;,&#xd;
+      &quot;OId&quot;: &quot;4cb24518-1465-11e7-b234-80ee73beb200&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;Default&quot;,&#xd;
+      &quot;OId&quot;: &quot;50f368e6-1064-11e7-aed2-80ee73beb1f3&quot;&#xd;
+    },&#xd;
+    {&#xd;
+      &quot;Name&quot;: &quot;yuantest&quot;,&#xd;
+      &quot;OId&quot;: &quot;988736b0-1064-11e7-9afd-80ee73beb1f3&quot;&#xd;
+    }&#xd;
+  ]&#xd;
 }&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -288,19 +349,21 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">pass</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="api group llist1" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="group llist" enabled="false">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.88</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -324,11 +387,11 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/api/face/add100" enabled="false">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face add" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="C:\Users\neon_chen\Desktop\miranda_kerr_face_girl_20131015_1755444175.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">C:\Users\neon_chen\Desktop\miranda_kerr_face_girl_20131015_1755444175.jpg</stringProp>
+              <elementProp name="/home/neon/下載/0413/001_1_20170221134308.jpg" elementType="HTTPFileArg">
+                <stringProp name="File.path">/home/neon/下載/0413/001_1_20170221134308.jpg</stringProp>
                 <stringProp name="File.paramname">image</stringProp>
                 <stringProp name="File.mimetype">image/jpg</stringProp>
               </elementProp>
@@ -338,14 +401,14 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="FRUserId" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.value">ggggg</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">FRUserId</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.87</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -360,12 +423,22 @@
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face identify 7" enabled="false">
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face identify" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="C:\Users\neon_chen\Desktop\miranda_kerr_face_girl_20131015_1755444175.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">C:\Users\neon_chen\Desktop\miranda_kerr_face_girl_20131015_1755444175.jpg</stringProp>
+              <elementProp name="/home/neon/下載/0413/001_1_20170221134308.jpg" elementType="HTTPFileArg">
+                <stringProp name="File.path">/home/neon/下載/0413/001_1_20170221134308.jpg</stringProp>
                 <stringProp name="File.paramname">image</stringProp>
                 <stringProp name="File.mimetype">image/jpg</stringProp>
               </elementProp>
@@ -374,7 +447,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.87</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -389,47 +462,10 @@
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face add" enabled="false">
-          <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
-            <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="/home/neon/projects/jmeter/367172-XXL.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">/home/neon/projects/jmeter/367172-XXL.jpg</stringProp>
-                <stringProp name="File.paramname">image</stringProp>
-                <stringProp name="File.mimetype">image/jpg</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="FRUserId" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">11</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">FRUserId</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
-          <stringProp name="HTTPSampler.port">8000</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/face/add</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
         <hashTree>
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">pass</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
+            <stringProp name="JSONPostProcessor.referenceNames">fruserId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.FRUserId</stringProp>
             <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
             <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
           </JSONPostProcessor>
@@ -442,14 +478,14 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;FRUserId&quot;: &quot;9090&quot;&#xd;
+    &quot;FRUserId&quot;: &quot;ggggg&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
+          <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -463,23 +499,33 @@
           <boolProp name="HTTPSampler.monitor">false</boolProp>
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face list1" enabled="false">
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face list" enabled="false">
           <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-    &quot;FRUserId&quot;: &quot;9090&quot;,&#xd;
+    &quot;FRUserId&quot;: &quot;ggggg&quot;,&#xd;
     &quot;FaceIndex&quot;: 1&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
+          <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -497,8 +543,8 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face verify" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="/home/neon/projects/jmeter/367172-XXL.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">/home/neon/projects/jmeter/367172-XXL.jpg</stringProp>
+              <elementProp name="/home/neon/下載/0413/001_1_20170221134308.jpg" elementType="HTTPFileArg">
+                <stringProp name="File.path">/home/neon/下載/0413/001_1_20170221134308.jpg</stringProp>
                 <stringProp name="File.paramname">image</stringProp>
                 <stringProp name="File.mimetype">image/jpg</stringProp>
               </elementProp>
@@ -508,14 +554,14 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="FRUserId" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">11</stringProp>
+                <stringProp name="Argument.value">ggggg</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">FRUserId</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -531,19 +577,21 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">FRUserId</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.FRUserId</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1508661142">{&quot;Result&quot;: &quot;Pass&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face_identify" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="/home/neon/projects/jmeter/367172-XXL.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">/home/neon/projects/jmeter/367172-XXL.jpg</stringProp>
+              <elementProp name="/home/neon/下載/0413/001_1_20170221134308.jpg" elementType="HTTPFileArg">
+                <stringProp name="File.path">/home/neon/下載/0413/001_1_20170221134308.jpg</stringProp>
                 <stringProp name="File.paramname">image</stringProp>
                 <stringProp name="File.mimetype">image/jpg</stringProp>
               </elementProp>
@@ -552,7 +600,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -579,8 +627,8 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="face_check" enabled="false">
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="/home/neon/projects/jmeter/367172-XXL.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">/home/neon/projects/jmeter/367172-XXL.jpg</stringProp>
+              <elementProp name="/home/neon/下載/0413/0033_1_20170221134844.jpg" elementType="HTTPFileArg">
+                <stringProp name="File.path">/home/neon/下載/0413/0033_1_20170221134844.jpg</stringProp>
                 <stringProp name="File.paramname">image</stringProp>
                 <stringProp name="File.mimetype">image/jpg</stringProp>
               </elementProp>
@@ -589,7 +637,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">192.168.100.174</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -605,12 +653,14 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">Code</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.Code</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1508661142">{&quot;Result&quot;: &quot;Pass&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="rfid_verify" enabled="false">
@@ -620,13 +670,13 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;RFIDCard&quot;:&quot;9527&quot;&#xd;
+	&quot;RFIDCard&quot;:&quot;ggggg&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -657,13 +707,13 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;RFIDCard&quot;:&quot;9527&quot;&#xd;
+	&quot;RFIDCard&quot;:&quot;ggggg&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -680,105 +730,21 @@
           <stringProp name="TestPlan.comments">				</stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">PASS</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="fruser add" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">{   &#xd;
-    &quot;FRUserId&quot;:&quot;2222222222&quot;, &#xd;
-    &quot;Name&quot;: &quot;2222222222&quot;, &#xd;
-    &quot;Gender&quot;: &quot;Female&quot;, &#xd;
-    &quot;Age&quot;: 1, &#xd;
-    &quot;RFIDCard&quot;: &quot;2222222222&quot;, &#xd;
-    &quot;State&quot;: &quot;Enable&quot;, &#xd;
-    &quot;Groups&quot;: [&#xd;
-        {&#xd;
-            &quot;OId&quot;: &quot;11579674-28ae-11e6-bd82-c860007009ce&quot;,&#xd;
-            &quot;Name&quot;: &quot;group_test4&quot;&#xd;
-            &#xd;
-        }    &#xd;
-    ]&#xd;
-}&#xd;
-</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.87</stringProp>
-          <stringProp name="HTTPSampler.port">8000</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/user/add</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/face/person/verify" enabled="false">
-          <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
-            <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="C:\Users\neon_chen\Desktop\9527_20160524163707.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.path">C:\Users\neon_chen\Desktop\9527_20160524163707.jpg</stringProp>
-                <stringProp name="File.paramname">image</stringProp>
-                <stringProp name="File.mimetype">image/jpg</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="FRUserId" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">0</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">FRUserId</stringProp>
-              </elementProp>
-            </collectionProp>
-          </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.124</stringProp>
-          <stringProp name="HTTPSampler.port">8800</stringProp>
-          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
-          <stringProp name="HTTPSampler.response_timeout"></stringProp>
-          <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/face/person/verify</stringProp>
-          <stringProp name="HTTPSampler.method">POST</stringProp>
-          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
-          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
-          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
-          <boolProp name="HTTPSampler.monitor">false</boolProp>
-          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
-        </HTTPSamplerProxy>
-        <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Connection Check" enabled="false">
-          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
-            <collectionProp name="Arguments.arguments">
-              <elementProp name="" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-              </elementProp>
-            </collectionProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -808,13 +774,15 @@
             <collectionProp name="Arguments.arguments">
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;MAC&quot;:&quot;AAAAAAAA&quot;&#xd;
+	}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
-          <stringProp name="HTTPSampler.port">80</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
+          <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
@@ -844,28 +812,34 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;Model&quot;: &quot;FR&quot;,  &#xd;
-     	&quot;WelcomeR0Pulse&quot;: &quot;1&quot;, &#xd;
-   	&quot;WelcomeR0Action&quot;: &quot;None&quot;, &#xd;
-     	&quot;WelcomeR1Pulse&quot;: &quot;1&quot;, &#xd;
- 	&quot;WelcomeR1Action&quot;: &quot;None&quot;, &#xd;
- 	&quot;AccessDeniedR0Pulse&quot;: &quot;1&quot;, &#xd;
-   	&quot;AccessDeniedR0Action&quot;: &quot;None&quot;, &#xd;
-     	&quot;AccessDeniedR1Pulse&quot;: &quot;1&quot;,&#xd;
-     	&quot;AccessDeniedR1Action&quot;: &quot;None&quot;, &#xd;
-     	&quot;ScreenSaver&quot;: &quot;5&quot;,&#xd;
-     	&quot;NTP&quot;: &quot;&quot;, &#xd;
- 	&quot;Timezone&quot;: &quot;UTC+8&quot;,  &#xd;
-   	&quot;Audio&quot;: &quot;Enable&quot;, &#xd;
-   	&quot;Language&quot;: &quot;en&quot;, &#xd;
-   	&quot;BioScore&quot;: &quot;Low&quot;&#xd;
-}&#xd;
-</stringProp>
+	&quot;Name&quot;: &quot;neon110&quot;, &#xd;
+	&quot;Model&quot;: &quot;FR&quot;, &#xd;
+	&quot;Language&quot;: &quot;en&quot;, &#xd;
+	&quot;NTP&quot;: &quot;118.163.81.61&quot;, &#xd;
+	&quot;FingerBioScore&quot;: &quot;Low&quot;, &#xd;
+	&quot;AccessDeniedR0Pulse&quot;: &quot;1&quot;, &#xd;
+	&quot;Timezone&quot;: &quot;(UTC) London, Dublin, Edinburgh, Lisbon&quot;, &#xd;
+	&quot;AccessDeniedR0Action&quot;: &quot;None&quot;, &#xd;
+	&quot;ScreenSaver&quot;: &quot;5&quot;, &#xd;
+	&quot;FaceBioScore&quot;: &quot;Low&quot;, &#xd;
+	&quot;WelcomeR1Pulse&quot;: &quot;1&quot;, &#xd;
+	&quot;Result&quot;: &quot;Success&quot;, &#xd;
+	&quot;Audio&quot;: &quot;Enable&quot;, &#xd;
+	&quot;WelcomeR1Action&quot;: &quot;None&quot;, &#xd;
+	&quot;WelcomeR0Action&quot;: &quot;None&quot;, &#xd;
+	&quot;Timeout&quot;: &quot;10&quot;, &#xd;
+	&quot;WelcomeR0Pulse&quot;: &quot;1&quot;,&#xd;
+	&quot;Type&quot;: &quot;Register&quot;,&#xd;
+	&quot;AccessDeniedR1Action&quot;: &quot;None&quot;,&#xd;
+	&quot;AccessDeniedR1Pulse&quot;: &quot;1&quot;,&#xd;
+	&quot;Version&quot;:&quot;1&quot;,&#xd;
+	&quot;MAC&quot;:&quot;AAAAAAAA&quot;&#xd;
+}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">10.0.3.197</stringProp>
+          <stringProp name="HTTPSampler.domain">192.168.100.218</stringProp>
           <stringProp name="HTTPSampler.port">8000</stringProp>
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
@@ -881,12 +855,14 @@
           <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Path PostProcessor" enabled="true">
-            <stringProp name="JSONPostProcessor.referenceNames">pass</stringProp>
-            <stringProp name="JSONPostProcessor.jsonPathExprs">$.pass</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
-            <stringProp name="JSONPostProcessor.defaultValues">0</stringProp>
-          </JSONPostProcessor>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="驗證回覆" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-33790176">{&quot;Result&quot;: &quot;Success&quot;}</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
           <hashTree/>
         </hashTree>
         <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="彙整報告" enabled="true">
@@ -1473,7 +1449,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TCIT face id" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="TCIT face id" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="迴圈控制器" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
